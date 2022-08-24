@@ -1,0 +1,79 @@
+.SoftAlertContainer {
+  font: inherit;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SoftAlert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding:2rem;
+  justify-content: center;
+  width: min(70vw, 750px);
+  color: black;
+  background-color: #fff;
+  border-radius: 4px;
+
+}
+
+.SoftAlertText {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.25rem;
+  padding: 2rem;
+  font-weight: normal;
+  line-height: 1.2rem;
+  text-align: justify;
+}
+
+.SoftAlertButtonsDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.SoftAlertCloseBtn,
+.SoftAlertCopyBtn {
+  width: auto;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 1rem;
+  z-index: 101;
+  padding: 1rem;
+}
+
+.SoftAlertCloseBtn {
+  background-color: dodgerblue;
+
+  color: white;
+}
+
+.SoftAlertCopyBtn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.DisappearingMessage {
+  position: fixed;
+  text-align: center;
+  font-size: 1.25rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
