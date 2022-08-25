@@ -21,7 +21,7 @@ var stopped = false;
 
 function displayInfo(){
     let text = `
-    This is a demo for audio signal processing.
+    This is a demo for audio scene sensing. (WIP)
     `
     softalert(text)
 }
@@ -31,6 +31,7 @@ function displayInfo(){
 function stopRecording(){
     stopped = true;
     ctx.clearRect(0,0,canvas.width,canvas.height)
+    document.getElementById('classifier').innerText = ""
 }
 
 
@@ -57,7 +58,7 @@ function startRecording(){
             // including analyser
             analyser = audioCtx.createAnalyser();
             source.connect(analyser)
-            analyser.fftSize = 64;
+            analyser.fftSize = 1024;
             const bufferLength = analyser.frequencyBinCount;
             const dataArray = new Uint8Array(bufferLength);
             
@@ -70,7 +71,7 @@ function startRecording(){
                 if(stopped === true){
                     audioCtx.suspend()
                     stream.getTracks()[0].stop();
-                    disappearingMessage('Stopping recording',800);
+                    // disappearingMessage('Stopped recording',500);
                     return
                 }
                 requestAnimationFrame(animate)
@@ -87,6 +88,14 @@ function startRecording(){
                     ctx.fillRect(x,canvas.height - barHeight, barWidth, barHeight)  
                     x+= canvas.width/bufferLength              
                 }
+                let avgAmplitude = dataArray.reduce((a,b)=> a+b,0)/dataArray.length;
+                console.log(avgAmplitude);
+                if( avgAmplitude> 10 ){
+                    document.getElementById('classifier').innerText = "noisy"
+                }else{
+                    document.getElementById('classifier').innerText = "calm"
+                }
+
             }
             requestAnimationFrame(animate)
         })
