@@ -1,6 +1,5 @@
 {
   "name": "ASC",
-  "start_url": "/?home=true",
   "icons": [
     {
       "src": "data/icons/manifest-icon-192.maskable.png",
