@@ -21,7 +21,14 @@ var stopped = false;
 
 function displayInfo(){
     let text = `
-    This is a demo for audio scene sensing. (WIP)
+    This is a demo for audio scene sensing. \n
+    Click on the microphone button to begin. \n
+    
+    An audio scene classification label displays whether the scene is noisy or calm. A spectrum analysis of the audio will be performed in real time and displayed as bars on the screen. Make some noise to test this. \n
+
+    Click on the stop button to stop the recording. \n
+
+    This is a static website and rest assured, all audio is processed locally on your browser. So, it is safe to turn on your microphone :-)
     `
     softalert(text)
 }
@@ -31,7 +38,7 @@ function displayInfo(){
 function stopRecording(){
     stopped = true;
     ctx.clearRect(0,0,canvas.width,canvas.height)
-    document.getElementById('classifier').innerText = ""
+    document.getElementById('classifier').innerText = "Recording stopped."
 }
 
 
